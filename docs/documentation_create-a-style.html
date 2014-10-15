@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
     </head>
@@ -52,6 +52,7 @@
                             <li><a href="documentation_layouts.html">Layout examples</a></li>
                             <li class="uk-nav-header">Developers</li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li class="uk-active"><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -72,15 +73,15 @@
 
                             <h3>1. Create the style directory</h3>
 
-                            <p>Create your style folder here <code>/themes/custom/THEME-NAME/styles/STYLE-NAME</code>.
+                            <p>Create your style folder here <code>/custom/THEME-NAME/styles/STYLE-NAME</code>.
 
                             <h3>2. Add your style</h3>
 
-                            <p>Create a blank <em>style.less</em> file in the <code>/themes/custom/THEME-NAME/styles/STYLE-NAME</code> folder. Now you can add new variable declarations manually or use the <a href="customizer.html">Customizer</a>. When you are finished, hit the <em>Get LESS</em> button in the Customizer and save the file in your style folder.</p>
+                            <p>Create a blank <em>style.less</em> file in the <code>/custom/THEME-NAME/styles/STYLE-NAME</code> folder. Now you can add new variable declarations manually or use the <a href="customizer.html">Customizer</a>. When you are finished, hit the <em>Get Less</em> button in the Customizer and save the file in your style folder.</p>
 
                             <h3>3. Customizer and Tests</h3>
 
-                            <p>Run the grunt task <em>indexthemes</em> on the UIkit directory to make your newly created style available in the Customizer and tests.</p>
+                            <p>Run the gulp task <em>indexthemes</em> on the UIkit directory to make your newly created style available in the Customizer and tests.</p>
 
                             <h3>4. Continue customizing</h3>
 
@@ -125,6 +126,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -135,7 +137,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -194,6 +195,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>

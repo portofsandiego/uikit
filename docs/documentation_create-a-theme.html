@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
     </head>
@@ -52,6 +52,7 @@
                             <li><a href="documentation_layouts.html">Layout examples</a></li>
                             <li class="uk-nav-header">Developers</li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li class="uk-active"><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -74,19 +75,19 @@
 
                             <h3>1. Create the theme directory</h3>
 
-                            <p>Download or clone UIkit and install Node and Grunt. Finally create your theme folder here <code>/themes/custom/THEME-NAME</code>.</p>
+                            <p>Download or clone UIkit and install Node and Gulp. Finally create your theme folder here <code>/custom/THEME-NAME</code>.</p>
 
                             <p><span class="uk-badge">NOTE</span> The <code>/custom</code> folder is set to git ignore, which prevents your custom files from being pushed into the UIkit repository. If you are working with a cloned version of UIkit's git repository, it is a good practice to have <code>/custom</code> as your own git repository. That way your theme files are under version control without interfering with the UIkit files.</p>
 
                             <h3>2. Add your theme</h3>
 
-                            <p>Create the <code>uikit.less</code> file in the <code>/themes/custom/THEME-NAME</code> folder and add the <code>@import "../../../src/less/uikit.less";</code> rule to access all LESS files from the core framework and adopt its basic styling. That's it! You can start adding your own theme from scratch.</p>
+                            <p>Create the <code>uikit.less</code> file in the <code>/custom/THEME-NAME</code> folder and add the <code>@import "../../src/uikit.less";</code> rule to access all Less files from the core framework and adopt its basic styling. That's it! You can start adding your own theme from scratch.</p>
 
                             <p><span class="uk-badge">NOTE</span> To get you started right away, we provide the default, gradient and almost-flat theme. All default files are already imported and you will also find all theme files with their related hooks. So all you need to do is to duplicate and rename the folder into the <code>/custom</code> directory.</p>
 
                             <h3>3. Customizer and Tests</h3>
 
-                            <p>Run the grunt task <code>indexthemes</code> on your UIkit folder. Now the newly created themes will be available automatically in the Customizer and test files.</p>
+                            <p>Run the gulp task <code>indexthemes -a</code> on your UIkit folder. Now the newly created themes will be available automatically in the Customizer and test files.</p>
 
                             <hr class="uk-article-divider">
 
@@ -96,21 +97,21 @@
 
                             <h3>1. Use variables</h3>
 
-                            <p>The first thing to do is to customize the values of already declared variables. You can find all variables for each component inside their LESS files of the core framework and override them in your theme.</p>
+                            <p>The first thing to do is to customize the values of already declared variables. You can find all variables for each component inside their Less files of the core framework and override them in your theme.</p>
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-2">
 
-                                    <p><code>/src/less/button.less</code></p>
+                                    <p><code>/src/core/button/button.less</code></p>
 <pre><code>// default value
 @button-height: 30px;</code></pre>
 
                                 </div>
                                 <div class="uk-width-medium-1-2">
 
-                                    <p><code>/themes/custom/THEME-NAME/button.less</code></p>
+                                    <p><code>/custom/THEME-NAME/button.less</code></p>
 <pre><code>// new value
 @button-height: 35px;</code></pre>
 
@@ -118,14 +119,14 @@
                             </div>
 
                             <h3>2. Use hooks</h3>
-                            <p>To prevent overhead selectors, we use Mixins from <a href="http://lesscss.org">LESS</a>, which hook into predefined selectors from the UIkit source and apply additional properties. Selectors don't have to be repeated throughout all documents and gobal changes can be made much more easily.</p>
+                            <p>To prevent overhead selectors, we use Mixins from <a href="http://lesscss.org">Less</a>, which hook into predefined selectors from the UIkit source and apply additional properties. Selectors don't have to be repeated throughout all documents and gobal changes can be made much more easily.</p>
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-2">
 
-                                    <p><code>/src/less/panel.less</code></p>
+                                    <p><code>/src/core/panel/panel.less</code></p>
 <pre><code>// CSS rule
 .uk-panel {
     background: @background;
@@ -136,7 +137,7 @@
                                 </div>
                                 <div class="uk-width-medium-1-2">
 
-                                    <p><code>/themes/custom/THEME-NAME/panel.less</code></p>
+                                    <p><code>/custom/THEME-NAME/panel.less</code></p>
 <pre><code>// mixin to add new declaration
 .hook-panel&#40;&#41; { color: #fff; }
 
@@ -157,7 +158,7 @@
 
                             <div class="uk-width-medium-1-2">
 
-                                <p><code>/themes/custom/THEME-NAME/panel.less</code></p>
+                                <p><code>/custom/THEME-NAME/panel.less</code></p>
 <pre><code>// misc mixin
 .hook-panel-misc() {
 
@@ -206,6 +207,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -215,7 +217,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -274,6 +275,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>

@@ -11,10 +11,10 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
-        <script src="../dist/js/addons/sortable.js"></script>
+        <script src="../src/js/components/sortable.js"></script>
     </head>
 
     <body class="tm-background">
@@ -46,6 +46,9 @@
                     <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
 
                         <ul class="tm-nav uk-nav" data-uk-nav>
+                            <li class="uk-nav-header">Layout</li>
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
                             <li class="uk-nav-header">Navigations</li>
                             <li><a href="addons_dotnav.html">Dotnav</a></li>
                             <li><a href="addons_slidenav.html">Slidenav</a></li>
@@ -82,7 +85,7 @@
 
                             <h2 id="usage"><a href="#usage" class="uk-link-reset">Usage</a></h2>
 
-                            <p>To apply this component, add the <code>.uk-sortable</code> class to a container and create child elements to define the add-on. To enable the necessary JavaScript, just add the <code>data-uk-sortable</code> attribute.</p>
+                            <p>To apply this component, add the <code>.uk-sortable</code> class to a container and create child elements to define the component. To enable the necessary JavaScript, just add the <code>data-uk-sortable</code> attribute.</p>
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
@@ -142,7 +145,7 @@
 
                             <h3 id ="sort-any-element"><a href="#sort-any-element" class="uk-link-reset">Sort any element</a></h3>
 
-                            <p>The sortable add-on is not limited to <code>&lt;ul&gt;</code> elements. You can use any block element as a container.</p>
+                            <p>The sortable component is not limited to <code>&lt;ul&gt;</code> elements. You can use any block element as a container.</p>
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
@@ -242,6 +245,10 @@
                                 </table>
                             </div>
 
+                            <h3 class="tm-article-subtitle">Init element manually</h3>
+
+                            <pre><code>var sortable = $.UIkit.sortable(element, { /* options */ });</code></pre>
+
                         </article>
 
                     </div>
@@ -281,6 +288,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -290,7 +298,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -349,6 +356,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>

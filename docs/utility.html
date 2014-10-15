@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
     </head>
@@ -47,7 +47,6 @@
                         <ul class="tm-nav uk-nav" data-uk-nav>
 
                             <li class="uk-nav-header">Defaults</li>
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
 
@@ -345,6 +344,43 @@
                             <h3>Center horizontally</h3>
 
                             <p> To center your content horizontally as well, add the <code>.uk-text-center</code> class to the parent and the <code>.uk-container-center</code> class to the child element. This is necessary because of the responsive behavior.</p>
+
+                            <hr class="uk-article-divider">
+
+                            <h2 id="viewport-height"><a href="#viewport-height" class="uk-link-reset">Viewport height</a></h2>
+
+                            <p>To create a container that fills the height of the entire viewport, for example for fullscreen image or video teasers, just add the <code>.uk-height-viewport</code> class.</p>
+
+                            <hr class="uk-article-divider">
+
+                            <h2 id="position-elements"><a href="#position-elements" class="uk-link-reset">Position elements</a></h2>
+
+                            <p>UIkit provides a number of classes to position your content without having to add your own CSS.</p>
+
+                            <div class="uk-overflow-container">
+                                <table class="uk-table uk-table-condensed uk-text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="uk-width-1-4">Class</th>
+                                            <th class="uk-width-3-4">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>.uk-position-absolute</code></td>
+                                            <td>Adds absolute positioning to an element.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>.uk-position-relative</code></td>
+                                            <td>Adds relative positioning to an element.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>.uk-position-cover</code></td>
+                                            <td>Adds absolute positioning to an element and stretches it to cover the entire parent.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
                             <hr class="uk-article-divider">
 
@@ -943,6 +979,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -952,7 +989,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -1011,6 +1047,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>

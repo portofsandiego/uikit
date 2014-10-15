@@ -11,11 +11,11 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
-        <script src="../dist/js/addons/autocomplete.js"></script>
-        <script src="../dist/js/addons/search.js"></script>
+        <script src="../src/js/components/autocomplete.js"></script>
+        <script src="../src/js/components/search.js"></script>
     </head>
 
     <body class="tm-background">
@@ -47,6 +47,9 @@
                     <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
 
                         <ul class="tm-nav uk-nav" data-uk-nav>
+                            <li class="uk-nav-header">Layout</li>
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
                             <li class="uk-nav-header">Navigations</li>
                             <li><a href="addons_dotnav.html">Dotnav</a></li>
                             <li><a href="addons_slidenav.html">Slidenav</a></li>
@@ -83,7 +86,7 @@
 
                             <h2 id="usage"><a href="#usage" class="uk-link-reset">Usage</a></h2>
 
-                            <p>The Search component consists of the search field itself and a close button.</p>
+                            <p>The Search component consists of a search form and the search field itself.</p>
 
                             <div class="uk-overflow-container">
                                 <table class="uk-table uk-text-nowrap">
@@ -102,10 +105,6 @@
                                             <td><code>.uk-search-field</code></td>
                                             <td>Add this class to an <code>&lt;input&gt;</code> element to create the search field.</td>
                                         </tr>
-                                        <tr>
-                                            <td><code>.uk-search-close</code></td>
-                                            <td>Add this class to a <code>&lt;button&gt;</code> element to create a close button, resetting the search input.</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -116,29 +115,26 @@
 
                             <form class="uk-search" data-uk-search>
                                 <input class="uk-search-field" type="search" placeholder="search...">
-                                <button class="uk-search-close" type="reset"></button>
                             </form>
 
                             <h3 class="tm-article-subtitle">Markup</h3>
 
 <pre><code>&lt;form class="uk-search" data-uk-search&gt;
     &lt;input class="uk-search-field" type="search" placeholder=""&gt;
-    &lt;button class="uk-search-close" type="reset"&gt;&lt;/button&gt;
 &lt;/form&gt;</code></pre>
 
                             <hr class="uk-article-divider">
 
                             <h2 id="json-search-results"><a href="#json-search-results" class="uk-link-reset">JSON search results</a></h2>
 
-                            <p>Just add <code>{source:'PATH/TO/RESULTS'}</code> to the data attribute and set the path to your search results, which need to be formatted in JSON (<a href="../src/tests/addons/_searchautocomplete.json">Example</a>). You can use a dropdown from the <a href="dropdown.html">Dropdown component</a> to display search results. A dropdown from the <a href="dropdown.html">Dropdown component</a> is injected to display the search results. You can even navigate through the dropdown with the up and down keys of your keyboard.</p>
+                            <p>Just add <code>{source:'PATH/TO/RESULTS'}</code> to the data attribute and set the path to your search results, which need to be formatted in JSON (<a href="../tests/components/_searchautocomplete.json">Example</a>). You can use a dropdown from the <a href="dropdown.html">Dropdown component</a> to display search results. A dropdown from the <a href="dropdown.html">Dropdown component</a> is injected to display the search results. You can even navigate through the dropdown with the up and down keys of your keyboard.</p>
 
-                            <p><span class="uk-badge uk-badge-danger">IMPORTANT</span> The search requires the <a href="addons_autocomplete.html">autocomplete</a> add-on to work. Please make sure that you include them always together.</p>
+                            <p><span class="uk-badge uk-badge-danger">IMPORTANT</span> The search requires the <a href="addons_autocomplete.html">autocomplete</a> component to work. Please make sure that you include them always together.</p>
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
-                            <form class="uk-search" data-uk-search="{source:'../src/tests/addons/_searchautocomplete.json'}">
+                            <form class="uk-search" data-uk-search="{source:'../tests/components/_searchautocomplete.json'}">
                                 <input class="uk-search-field" type="search" placeholder="search...">
-                                <button class="uk-search-close" type="reset"></button>
                             </form>
 
                             <h3 class="tm-article-subtitle">Markup</h3>
@@ -146,7 +142,6 @@
 <pre><code>&lt;form class="uk-search" data-uk-search="{source:'my-results.json'}"&gt;
 
     &lt;input class="uk-search-field" type="search" placeholder=""&gt;
-    &lt;button class="uk-search-close" type="reset"&gt;&lt;/button&gt;
 
     &lt;!-- This is the dropdown, which is injected through JavaScript --&gt;
     &lt;div class="uk-dropdown uk-dropdown-search"&gt;
@@ -167,9 +162,8 @@
 
                                 <div class="uk-navbar-flip">
                                     <div class="uk-navbar-content">
-                                        <form class="uk-search" data-uk-search="{flipDropdown:true, source:'../src/tests/addons/_searchautocomplete.json'}">
+                                        <form class="uk-search" data-uk-search="{flipDropdown:true, source:'../tests/components/_searchautocomplete.json'}">
                                             <input class="uk-search-field" type="search" placeholder="search...">
-                                            <button class="uk-search-close" type="reset"></button>
                                         </form>
                                     </div>
                                 </div>
@@ -201,7 +195,6 @@
                                 <div class="uk-offcanvas-bar">
                                     <form class="uk-search">
                                         <input class="uk-search-field" type="search" placeholder="search...">
-                                        <button class="uk-search-close" type="reset"></button>
                                     </form>
                                 </div>
                             </div>
@@ -262,6 +255,10 @@
                                 </table>
                             </div>
 
+                            <h3 class="tm-article-subtitle">Init element manually</h3>
+
+                            <pre><code>var search = $.UIkit.search(element, { /* options */ });</code></pre>
+
                         </article>
 
                     </div>
@@ -301,6 +298,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -310,7 +308,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -369,6 +366,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>

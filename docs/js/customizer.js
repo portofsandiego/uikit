@@ -12,16 +12,16 @@ jQuery(function($) {
         loaded      = false,
         coptions    = {
             "styles": [
-                {"name": "Default", "url": "../themes/default/default/uikit.less", "config": "../themes/default/default/customizer.json"},
-                {"name": "Gradient", "url": "../themes/default/gradient/uikit.less", "config": "../themes/default/gradient/customizer.json"},
-                {"name": "Almost Flat", "url": "../themes/default/almost-flat/uikit.less", "config": "../themes/default/almost-flat/customizer.json"}
+                {"name": "Default", "url": ["../themes/default/uikit-customizer.less"], "config": "../themes/default/customizer.json"},
+                {"name": "Gradient", "url": ["../themes/gradient/uikit-customizer.less"], "config": "../themes/gradient/customizer.json"},
+                {"name": "Almost Flat", "url": ["../themes/almost-flat/uikit-customizer.less"], "config": "../themes/almost-flat/customizer.json"}
             ]
         };
 
     $iframe.css("opacity", "0");
     $spinner.show();
 
-    $.get("../themes/themes.json", {nocache:Math.random()}).always(function(data, type){
+    $.get("../themes.json", {nocache:Math.random()}).always(function(data, type){
 
         if (type==="success") {
 
@@ -29,14 +29,17 @@ jQuery(function($) {
 
             for (var i = 0; i < data.length; i++) {
 
+                data[i].url    = "../"+data[i].url;
+                data[i].config = "../"+data[i].config
+
                 coptions.styles.push(data[i]);
 
                 // theme styles?
-                if(data[i].styles) {
+                if (data[i].styles) {
                     for(var style in data[i].styles) {
                         coptions.styles.push({
                             "name" : data[i].name+" - "+style,
-                            "url"  : [data[i].url, data[i].styles[style]],
+                            "url"  : [data[i].url, "../"+data[i].styles[style]],
                             "config": data[i].config
                         });
                     }
@@ -72,7 +75,7 @@ jQuery(function($) {
 
     $error.on({
         "show": function(e, error) {
-            $error.html($.mustache("<h1 class=\"uk-h3\">LESS {{type}} Error</h1><p>{{message}}</p>", error)).show();
+            $error.html($.mustache("<h1 class=\"uk-h3\">Less {{type}} Error</h1><p>{{message}}</p>", error)).show();
             $iframe.css("opacity", "0");
         },
         "hide": function() {
@@ -91,7 +94,7 @@ jQuery(function($) {
     });
 
     $("a[download='style.less']").on("click", function(e) {
-        downloadLESS($(this), $style);
+        downloadLess($(this), $style);
     });
 
     if (!$download) {
@@ -110,8 +113,8 @@ jQuery(function($) {
 
                 r.onload = function(e) {
 
-                    if(!f.name.match(/\.less$/i)) {
-                        alert("Please select a LESS file!");
+                    if (!f.name.match(/\.less$/i)) {
+                        alert("Please select a Less file!");
                         return;
                     }
 
@@ -119,7 +122,7 @@ jQuery(function($) {
 
                     contents.split("\n").forEach(function(line){
 
-                        if(line.match(/\/\* theme\: (.+) \*\//)) {
+                        if (line.match(/\/\* theme\: (.+) \*\//)) {
                             theme = line.match(/\/\* theme\: (.+) \*\//)[1];
                             return;
                         }
@@ -127,12 +130,12 @@ jQuery(function($) {
 
                         lessvar = line.match(/(@[\w\-]+)\s*:\s*([^;]*);/i);
 
-                        if(lessvar) {
+                        if (lessvar) {
                             vars[lessvar[1]] = lessvar[2];
                         }
                     });
 
-                    if(Object.keys(vars).length) {
+                    if (Object.keys(vars).length) {
 
                         var name = theme ? theme : $customizer.data("customizer").$select.val();
 
@@ -142,7 +145,7 @@ jQuery(function($) {
                             }
                         });
 
-                        if(theme) {
+                        if (theme) {
                             $customizer.data("customizer").$select.val(theme);
                         }
 
@@ -161,6 +164,10 @@ jQuery(function($) {
     }
 
     function renderPreview(style) {
+
+        style.variables = style.variables || {};
+
+        style.variables['@icon-font-path'] = '"../../fonts"';
 
         $.less.getCSS(style.less, {id: style.name, variables: style.variables, compress: true}).done(function(css) {
 
@@ -206,7 +213,7 @@ jQuery(function($) {
         });
     }
 
-    function downloadLESS(a, style) {
+    function downloadLess(a, style) {
 
         var source = [], first, cache = {};
 
@@ -220,9 +227,9 @@ jQuery(function($) {
             first = true;
             $.each(grp.vars, function(i, opt) {
                 $.each(style.variables, function(name, value) {
-                    if(style.matchName(opt, name)) {
+                    if (style.matchName(opt, name)) {
 
-                        if(!cache[name]) {
+                        if (!cache[name]) {
 
                             if (first) source.push("\n//\n// "+grp.label+"\n//\n");
                             source.push(name + ": " + value + ";");
@@ -237,7 +244,7 @@ jQuery(function($) {
         if ($download) {
             a.attr("href", $url.createObjectURL(new Blob([source.join("\n")], {type: "application/force-download"})));
         } else {
-            $("h2", $modal).text("LESS Variables");
+            $("h2", $modal).text("Less Variables");
             $("textarea", $modal).val(source.join("\n"));
         }
     }

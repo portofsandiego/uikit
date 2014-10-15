@@ -11,10 +11,10 @@
         <link rel="stylesheet" href="css/docs.css">
         <link rel="stylesheet" href="../vendor/highlight/highlight.css">
         <script src="../vendor/jquery.js"></script>
-        <script src="../dist/js/uikit.min.js"></script>
+        <script src="js/uikit.min.js"></script>
         <script src="../vendor/highlight/highlight.js"></script>
         <script src="js/docs.js"></script>
-        <script src="../dist/js/addons/sticky.js"></script>
+        <script src="../src/js/components/sticky.js"></script>
     </head>
 
     <body class="tm-background">
@@ -46,6 +46,9 @@
                     <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
 
                         <ul class="tm-nav uk-nav" data-uk-nav>
+                            <li class="uk-nav-header">Layout</li>
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
                             <li class="uk-nav-header">Navigations</li>
                             <li><a href="addons_dotnav.html">Dotnav</a></li>
                             <li><a href="addons_slidenav.html">Slidenav</a></li>
@@ -72,7 +75,7 @@
                     </div>
                     <div class="tm-main uk-width-medium-3-4">
 
-                        <article class="uk-article" style="height: 2000px;">
+                        <article class="uk-article" style="min-height: 2500px;">
 
                             <h1>Sticky</h1>
 
@@ -133,6 +136,72 @@
 &lt;div data-uk-sticky="{media: '(min-width: 640px) and (orientation: landscape)'}&gt;...&lt;/div&gt;
 </code></pre>
 
+
+                            <hr class="uk-article-divider">
+
+                            <h2 id="javascript-options"><a href="#javascript-options" class="uk-link-reset">JavaScript options</a></h2>
+
+                            <div class="uk-overflow-container">
+                                <table class="uk-table uk-table-striped uk-text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Option</th>
+                                            <th>Possible value</th>
+                                            <th>Default</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>top</code></td>
+                                            <td>integer</td>
+                                            <td>0</td>
+                                            <td>Top offset whent sticky should be triggered</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>animation</code></td>
+                                            <td>string</td>
+                                            <td>''</td>
+                                            <td>UIkit animation class</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>clsinit</code></td>
+                                            <td>string</td>
+                                            <td>uk-sticky-init</td>
+                                            <td>Init class when the element is sticky for the first time</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>clsactive</code></td>
+                                            <td>string</td>
+                                            <td>uk-active</td>
+                                            <td>Active class to add, when element is sticky</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>getWidthFrom</code></td>
+                                            <td>string</td>
+                                            <td>''</td>
+                                            <td>Css selector where to get the width from in sticky mode. By default it takes the width from the created wrapper element.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>media</code></td>
+                                            <td>integer / string</td>
+                                            <td>false</td>
+                                            <td>Condition for the active status with a width as integer (e.g. 640) or a css media query</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>target</code></td>
+                                            <td>boolean</td>
+                                            <td>false</td>
+                                            <td>Make sure that a sticky element is not over a targeted element via location hash on dom-ready.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="tm-article-subtitle">Init element manually</h3>
+
+                            <pre><code>var sticky = $.UIkit.sticky(element, { /* options */ });</code></pre>
+
                         </article>
 
                     </div>
@@ -172,6 +241,7 @@
                             <li><a href="components.html">Components</a></li>
                             <li><a href="addons.html">Add-ons</a></li>
                             <li><a href="documentation_project-structure.html">Project structure</a></li>
+                            <li><a href="documentation_less-sass.html">Less &amp; Sass files</a></li>
                             <li><a href="documentation_create-a-theme.html">Create a theme</a></li>
                             <li><a href="documentation_create-a-style.html">Create a style</a></li>
                             <li><a href="documentation_customizer-json.html">Customizer.json</a></li>
@@ -181,7 +251,6 @@
                     <li class="uk-nav-header">Components</li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-wrench"></i> Defaults</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="normalize.html">Normalize</a></li>
                             <li><a href="base.html">Base</a></li>
                             <li><a href="print.html">Print</a></li>
                         </ul>
@@ -240,6 +309,12 @@
                         </ul>
                     </li>
                     <li class="uk-nav-header">Add-ons</li>
+                    <li class="uk-parent"><a href="#"><i class="uk-icon-th-large"></i> Layout</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="addons_flex.html">Flex</a></li>
+                            <li><a href="addons_cover.html">Cover</a></li>
+                        </ul>
+                    </li>
                     <li class="uk-parent"><a href="#"><i class="uk-icon-bars"></i> Navigations</a>
                         <ul class="uk-nav-sub">
                             <li><a href="addons_dotnav.html">Dotnav</a></li>
